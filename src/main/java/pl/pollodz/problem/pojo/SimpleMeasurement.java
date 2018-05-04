@@ -8,7 +8,7 @@ import pl.pollodz.problem.converter.ZonedDateTimeDeserializer;
 import java.time.ZonedDateTime;
 
 @Data
-public class Measurement {
+public class SimpleMeasurement {
 
     @JsonProperty(value = "deviceId")
     private String deviceId;
