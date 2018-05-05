@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      javax:
+        persistence:
+          schema-generation:
+            database:
+              action: drop-and-create
+          sql-load-script-source: META-INF/sql/data.sql
