@@ -1,4 +1,4 @@
-package pl.pollodz.problem.pojo;
+package pl.pollodz.problem.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
