@@ -5,6 +5,8 @@ import pl.pollodz.problem.model.device.Device;
 
 import javax.persistence.*;
 
+import java.time.LocalDateTime;
+
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
 
@@ -21,6 +23,6 @@ public class AbstractMeasurement {
     @ManyToOne(cascade = ALL, fetch = LAZY)
     private Device device;
 
-    @Transient
-    private Object measurement;
+    @Column(name = "timestamp")
+    private LocalDateTime timestamp;
 }

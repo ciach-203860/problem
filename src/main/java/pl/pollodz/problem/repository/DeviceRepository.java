@@ -5,5 +5,5 @@ import pl.pollodz.problem.model.device.Device;
 
 public interface DeviceRepository extends JpaRepository<Device, Long> {
 
-    Device findByDeviceId(String deviceId);
+    Device findByName(String name);
 }

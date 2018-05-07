@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.pollodz.problem.model.device.Device;
 import pl.pollodz.problem.repository.DeviceRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,7 +17,12 @@ public class DefaultDeviceService implements DeviceService {
     private DeviceRepository deviceRepository;
 
     @Override
-    public Optional<Device> getByDeviceId(String deviceId) {
-        return Optional.ofNullable(deviceRepository.findByDeviceId(deviceId));
+    public Optional<Device> getByName(String name) {
+        return Optional.ofNullable(deviceRepository.findByName(name));
+    }
+
+    @Override
+    public List<Device> getAll() {
+        return deviceRepository.findAll();
     }
 }

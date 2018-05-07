@@ -6,8 +6,8 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class SimpleMeasurementsList {
+public class MeasurementsList {
 
     @JsonProperty(value = "measurements")
-    private List<SimpleMeasurement> measurements;
+    private List<Measurement> measurements;
 }

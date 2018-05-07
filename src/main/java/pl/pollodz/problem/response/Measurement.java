@@ -3,12 +3,12 @@ package pl.pollodz.problem.response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Data;
-import pl.pollodz.problem.converter.ZonedDateTimeDeserializer;
+import pl.pollodz.problem.converter.LocalDateTimeDeserializer;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 
 @Data
-public class SimpleMeasurement {
+public class Measurement {
 
     @JsonProperty(value = "deviceId")
     private String deviceId;
@@ -17,6 +17,6 @@ public class SimpleMeasurement {
     private String value;
 
     @JsonProperty(value = "timestamp")
-    @JsonDeserialize(using = ZonedDateTimeDeserializer.class)
-    private ZonedDateTime timestamp;
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    private LocalDateTime timestamp;
 }
