@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.pollodz.problem.core.mapper.CoordinateMapper;
+import pl.pollodz.problem.core.mapper.DateMapper;
 import pl.pollodz.problem.core.mapper.DoubleMapper;
 import pl.pollodz.problem.core.translator.TemperatureTranslator;
 import pl.pollodz.problem.exception.NoDeviceWithGivenIdException;
@@ -51,6 +52,9 @@ public class Nameless {
 
     @Autowired
     private TemperatureTranslator temperatureTranslator;
+
+    @Autowired
+    private DateMapper dateMapper;
 
     public void nameless(MeasurementsList list) {
 
@@ -157,7 +161,7 @@ public class Nameless {
                 .build();
         switch (device.getUnit()) {
             case DATE:
-                // necessary?
+                temp.setMeasurement(dateMapper.map(measurement.getValue()));
                 break;
         }
         detectionService.save(temp);

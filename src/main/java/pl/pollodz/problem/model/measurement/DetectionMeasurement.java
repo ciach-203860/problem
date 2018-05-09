@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import pl.pollodz.problem.model.device.Device;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.time.LocalDateTime;
 
@@ -13,9 +14,13 @@ import java.time.LocalDateTime;
 @Data
 public class DetectionMeasurement extends AbstractMeasurement {
 
+    @Column(name = "measurement")
+    private LocalDateTime measurement;
+
     @Builder
-    private DetectionMeasurement(Device device, LocalDateTime timestamp) {
+    private DetectionMeasurement(Device device, LocalDateTime timestamp, LocalDateTime measurement) {
         super.setDevice(device);
         super.setTimestamp(timestamp);
+        this.measurement = measurement;
     }
 }

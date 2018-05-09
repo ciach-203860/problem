@@ -14,7 +14,7 @@ INSERT INTO lighting_measurements    (measurement_id, device_id, timestamp, meas
 
 INSERT INTO humidity_measurements    (measurement_id, device_id, timestamp, measurement)         VALUES (1, 5, '2018-05-07 15:00:30', 40);
 
-INSERT INTO detection_measurements   (measurement_id, device_id, timestamp)                      VALUES (1, 6, '2018-05-07 15:05:30');
+INSERT INTO detection_measurements   (measurement_id, device_id, timestamp, measurement)         VALUES (1, 6, '2018-05-07 15:05:30', '2018-05-07 15:05:30');
 
 INSERT INTO gps_measurements         (measurement_id, device_id, timestamp, latitude, longitude) VALUES (1, 7, '2018-05-07 15:14:30', 51.759445, 19.457216);
 
