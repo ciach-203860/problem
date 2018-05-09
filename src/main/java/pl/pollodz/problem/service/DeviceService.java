@@ -10,4 +10,6 @@ public interface DeviceService {
     Optional<Device> getByName(String name);
 
     List<Device> getAll();
+
+    Optional<Device> getById(Long id);
 }

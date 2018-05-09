@@ -25,4 +25,9 @@ public class DefaultDeviceService implements DeviceService {
     public List<Device> getAll() {
         return deviceRepository.findAll();
     }
+
+    @Override
+    public Optional<Device> getById(Long id) {
+        return deviceRepository.findById(id);
+    }
 }
