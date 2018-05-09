@@ -1,17 +1,12 @@
 package pl.pollodz.problem.model.device;
 
-import lombok.Data;
+public enum MeasurementType {
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-
-@Data
-@Embeddable
-public class MeasurementType {
-
-    @Column(name = "type")
-    private String type;
-
-    @Column(name = "description")
-    private String description;
+    TEMPERATURE,
+    LIGHTING,
+    HUMIDITY,
+    MOTION_DETECTION,
+    MOTION_ANALYSIS,
+    DISTANCE,
+    AZIMUTH
 }

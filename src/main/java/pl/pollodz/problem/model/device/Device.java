@@ -2,10 +2,9 @@ package pl.pollodz.problem.model.device;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import static javax.persistence.EnumType.STRING;
 
 @Data
 @Entity(name = "devices")
@@ -19,7 +18,14 @@ public class Device {
     @Column(name = "name", unique = true)
     private String name;
 
+    @Enumerated(STRING)
+    @Column(name = "measurement_type")
     private MeasurementType measurementType;
 
+    @Enumerated(STRING)
+    @Column(name = "unit")
     private Unit unit;
+
+    @Column(name = "description_key")
+    private String descriptionKey;
 }
