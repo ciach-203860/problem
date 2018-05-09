@@ -7,4 +7,6 @@ import java.util.List;
 public interface DistanceService {
 
     List<DistanceMeasurement> getAll();
+
+    void save(DistanceMeasurement temp);
 }

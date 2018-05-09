@@ -7,4 +7,6 @@ import java.util.List;
 public interface GPSService {
 
     List<GPSMeasurement> getAll();
+
+    void save(GPSMeasurement temp);
 }

@@ -19,4 +19,9 @@ public class DefaultDetectionService implements DetectionService {
     public List<DetectionMeasurement> getAll() {
         return detectionRepository.findAll();
     }
+
+    @Override
+    public void save(DetectionMeasurement temp) {
+        detectionRepository.saveAndFlush(temp);
+    }
 }

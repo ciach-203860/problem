@@ -7,4 +7,6 @@ import java.util.List;
 public interface TemperatureService {
 
     List<TemperatureMeasurement> getAll();
+
+    void save(TemperatureMeasurement measurement);
 }

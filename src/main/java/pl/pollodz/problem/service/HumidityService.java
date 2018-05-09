@@ -7,4 +7,6 @@ import java.util.List;
 public interface HumidityService {
 
     List<HumidityMeasurement> getAll();
+
+    void save(HumidityMeasurement temp);
 }

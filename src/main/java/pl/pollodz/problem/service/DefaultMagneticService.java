@@ -19,4 +19,9 @@ public class DefaultMagneticService implements MagneticService {
     public List<MagneticMeasurement> getAll() {
         return magneticRepository.findAll();
     }
+
+    @Override
+    public void save(MagneticMeasurement temp) {
+        magneticRepository.saveAndFlush(temp);
+    }
 }

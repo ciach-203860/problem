@@ -19,4 +19,9 @@ public class DefaultHumidityService implements HumidityService {
     public List<HumidityMeasurement> getAll() {
         return humidityRepository.findAll();
     }
+
+    @Override
+    public void save(HumidityMeasurement temp) {
+        humidityRepository.saveAndFlush(temp);
+    }
 }

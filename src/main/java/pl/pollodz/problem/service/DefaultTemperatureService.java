@@ -19,4 +19,9 @@ public class DefaultTemperatureService implements TemperatureService {
     public List<TemperatureMeasurement> getAll() {
         return temperatureRepository.findAll();
     }
+
+    @Override
+    public void save(TemperatureMeasurement measurement) {
+        temperatureRepository.saveAndFlush(measurement);
+    }
 }

@@ -7,4 +7,6 @@ import java.util.List;
 public interface LightingService {
 
     List<LightingMeasurement> getAll();
+
+    void save(LightingMeasurement temp);
 }

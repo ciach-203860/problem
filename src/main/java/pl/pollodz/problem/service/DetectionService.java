@@ -7,4 +7,6 @@ import java.util.List;
 public interface DetectionService {
 
     List<DetectionMeasurement> getAll();
+
+    void save(DetectionMeasurement temp);
 }

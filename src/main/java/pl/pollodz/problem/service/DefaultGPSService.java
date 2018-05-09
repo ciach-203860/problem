@@ -19,4 +19,9 @@ public class DefaultGPSService implements GPSService {
     public List<GPSMeasurement> getAll() {
         return gpsRepository.findAll();
     }
+
+    @Override
+    public void save(GPSMeasurement temp) {
+        gpsRepository.saveAndFlush(temp);
+    }
 }

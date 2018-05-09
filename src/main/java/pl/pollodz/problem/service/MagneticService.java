@@ -7,4 +7,6 @@ import java.util.List;
 public interface MagneticService {
 
     List<MagneticMeasurement> getAll();
+
+    void save(MagneticMeasurement temp);
 }

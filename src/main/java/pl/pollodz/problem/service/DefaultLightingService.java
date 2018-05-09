@@ -19,4 +19,9 @@ public class DefaultLightingService implements LightingService {
     public List<LightingMeasurement> getAll() {
         return lightingRepository.findAll();
     }
+
+    @Override
+    public void save(LightingMeasurement temp) {
+        lightingRepository.saveAndFlush(temp);
+    }
 }

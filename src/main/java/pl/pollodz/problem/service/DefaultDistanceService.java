@@ -19,4 +19,9 @@ public class DefaultDistanceService implements DistanceService {
     public List<DistanceMeasurement> getAll() {
         return distanceRepository.findAll();
     }
+
+    @Override
+    public void save(DistanceMeasurement temp) {
+        distanceRepository.saveAndFlush(temp);
+    }
 }
