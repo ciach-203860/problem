@@ -1,5 +1,6 @@
 package pl.pollodz.problem.model.measurement.additional;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Embeddable;
 
 @Data
 @Embeddable
+@Builder
 public class Coordinate {
 
     @Column(name = "latitude")
