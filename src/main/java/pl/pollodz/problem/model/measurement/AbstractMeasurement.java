@@ -15,7 +15,7 @@ import static javax.persistence.FetchType.LAZY;
 public class AbstractMeasurement {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "measurement_id")
     private Long id;
 

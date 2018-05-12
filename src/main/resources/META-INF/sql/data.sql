@@ -10,7 +10,7 @@ INSERT INTO devices (device_id, name, unit, measurement_type, description_key) V
 
 INSERT INTO temperature_measurements (measurement_id, device_id, timestamp, measurement)         VALUES (1, 1, '2018-05-07 14:52:30', 21.5);
 
-INSERT INTO lighting_measurements    (measurement_id, device_id, timestamp, measurement)         VALUES (1, 2, '2018-05-07 14:55:30', 500);
+INSERT INTO lighting_measurements    (measurement_id, device_id, timestamp, measurement)         VALUES (1, 3, '2018-05-07 14:55:30', 500);
 
 INSERT INTO humidity_measurements    (measurement_id, device_id, timestamp, measurement)         VALUES (1, 5, '2018-05-07 15:00:30', 40);
 

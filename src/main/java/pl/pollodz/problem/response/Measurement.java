@@ -16,7 +16,7 @@ public class Measurement {
     @JsonProperty(value = "value")
     private String value;
 
-    @JsonProperty(value = "timestamp")
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    private LocalDateTime timestamp;
+//    @JsonProperty(value = "timestamp")
+//    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+//    private LocalDateTime timestamp;
 }

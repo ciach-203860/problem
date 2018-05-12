@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.pollodz.problem.core.Nameless;
 import pl.pollodz.problem.model.device.Device;
 import pl.pollodz.problem.model.measurement.*;
 import pl.pollodz.problem.response.MeasurementsList;
@@ -40,10 +41,15 @@ public class TestController {
     @Autowired
     private TemperatureService temperatureService;
 
+    @Autowired
+    private Nameless nameless;
+
     @RequestMapping(value = "collect", method = POST)
     public String collectData(@RequestBody MeasurementsList measurementsList) {
 
         //region test
+
+        nameless.nameless(measurementsList);
 
         List<Device> devices = deviceService.getAll();
         Device device = deviceService.getByName("thermometer 1").orElse(null);

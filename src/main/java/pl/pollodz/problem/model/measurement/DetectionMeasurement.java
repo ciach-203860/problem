@@ -3,6 +3,7 @@ package pl.pollodz.problem.model.measurement;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Tolerate;
 import pl.pollodz.problem.model.device.Device;
 
 import javax.persistence.Column;
@@ -22,5 +23,9 @@ public class DetectionMeasurement extends AbstractMeasurement {
         super.setDevice(device);
         super.setTimestamp(timestamp);
         this.measurement = measurement;
+    }
+
+    @Tolerate
+    public DetectionMeasurement() {
     }
 }

@@ -2,6 +2,7 @@ package pl.pollodz.problem.model.measurement.additional;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.experimental.Tolerate;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -16,4 +17,8 @@ public class Coordinate {
 
     @Column(name = "longitude")
     private Double longitude;
+
+    @Tolerate
+    public Coordinate() {
+    }
 }

@@ -14,6 +14,8 @@ import pl.pollodz.problem.response.Measurement;
 import pl.pollodz.problem.response.MeasurementsList;
 import pl.pollodz.problem.service.*;
 
+import java.time.LocalDateTime;
+
 @Service
 @Slf4j
 public class Nameless {
@@ -107,7 +109,7 @@ public class Nameless {
         TemperatureMeasurement temp = TemperatureMeasurement
                 .builder()
                 .device(device)
-                .timestamp(measurement.getTimestamp())
+                .timestamp(LocalDateTime.now())
                 .build();
         switch (device.getUnit()) {
             case CELSIUS:
@@ -119,6 +121,9 @@ public class Nameless {
                 ));
                 break;
         }
+        if (log.isDebugEnabled()) {
+            log.debug("Saving temperature measurement: " + temp + " in database.");
+        }
         temperatureService.save(temp);
     }
 
@@ -127,12 +132,15 @@ public class Nameless {
         LightingMeasurement temp = LightingMeasurement
                 .builder()
                 .device(device)
-                .timestamp(measurement.getTimestamp())
+                .timestamp(LocalDateTime.now())
                 .build();
         switch (device.getUnit()) {
             case UNKNOWN:
                 temp.setMeasurement(doubleMapper.map(measurement.getValue()));
                 break;
+        }
+        if (log.isDebugEnabled()) {
+            log.debug("Saving lighting measurement: " + temp + " in database.");
         }
         lightingService.save(temp);
     }
@@ -142,12 +150,15 @@ public class Nameless {
         HumidityMeasurement temp = HumidityMeasurement
                 .builder()
                 .device(device)
-                .timestamp(measurement.getTimestamp())
+                .timestamp(LocalDateTime.now())
                 .build();
         switch (device.getUnit()) {
             case PERCENTAGE:
                 temp.setMeasurement(doubleMapper.map(measurement.getValue()));
                 break;
+        }
+        if (log.isDebugEnabled()) {
+            log.debug("Saving humidity measurement: " + temp + " in database.");
         }
         humidityService.save(temp);
     }
@@ -157,12 +168,15 @@ public class Nameless {
         DetectionMeasurement temp = DetectionMeasurement
                 .builder()
                 .device(device)
-                .timestamp(measurement.getTimestamp())
+                .timestamp(LocalDateTime.now())
                 .build();
         switch (device.getUnit()) {
             case DATE:
                 temp.setMeasurement(dateMapper.map(measurement.getValue()));
                 break;
+        }
+        if (log.isDebugEnabled()) {
+            log.debug("Saving motion detection measurement: " + temp + " in database.");
         }
         detectionService.save(temp);
     }
@@ -172,12 +186,15 @@ public class Nameless {
         GPSMeasurement temp = GPSMeasurement
                 .builder()
                 .device(device)
-                .timestamp(measurement.getTimestamp())
+                .timestamp(LocalDateTime.now())
                 .build();
         switch (device.getUnit()) {
             case COORDINATES:
                 temp.setCoordinate(coordinateMapper.map(measurement.getValue()));
                 break;
+        }
+        if (log.isDebugEnabled()) {
+            log.debug("Saving motion analysis measurement: " + temp + " in database.");
         }
         gpsService.save(temp);
     }
@@ -187,12 +204,15 @@ public class Nameless {
         DistanceMeasurement temp = DistanceMeasurement
                 .builder()
                 .device(device)
-                .timestamp(measurement.getTimestamp())
+                .timestamp(LocalDateTime.now())
                 .build();
         switch (device.getUnit()) {
             case CENTIMETER:
                 temp.setMeasurement(doubleMapper.map(measurement.getValue()));
                 break;
+        }
+        if (log.isDebugEnabled()) {
+            log.debug("Saving distance measurement: " + temp + " in database.");
         }
         distanceService.save(temp);
     }
@@ -202,12 +222,15 @@ public class Nameless {
         MagneticMeasurement temp = MagneticMeasurement
                 .builder()
                 .device(device)
-                .timestamp(measurement.getTimestamp())
+                .timestamp(LocalDateTime.now())
                 .build();
         switch (device.getUnit()) {
             case DEGREE:
                 temp.setMeasurement(doubleMapper.map(measurement.getValue()));
                 break;
+        }
+        if (log.isDebugEnabled()) {
+            log.debug("Saving azimuth measurement: " + temp + " in database.");
         }
         magneticService.save(temp);
     }

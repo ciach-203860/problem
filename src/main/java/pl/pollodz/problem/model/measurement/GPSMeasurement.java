@@ -3,6 +3,7 @@ package pl.pollodz.problem.model.measurement;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Tolerate;
 import pl.pollodz.problem.model.device.Device;
 import pl.pollodz.problem.model.measurement.additional.Coordinate;
 
@@ -21,5 +22,9 @@ public class GPSMeasurement extends AbstractMeasurement {
         super.setDevice(device);
         super.setTimestamp(timestamp);
         this.coordinate = coordinate;
+    }
+
+    @Tolerate
+    public GPSMeasurement() {
     }
 }
