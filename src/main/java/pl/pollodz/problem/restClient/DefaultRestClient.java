@@ -11,7 +11,6 @@ import java.util.Map;
 
 @Data
 @Builder
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class DefaultRestClient {
 
     private RestTemplate restTemplate;
