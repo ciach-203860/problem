@@ -7,7 +7,8 @@ import javax.persistence.*;
 import static javax.persistence.EnumType.STRING;
 
 @Data
-@Entity(name = "devices")
+@Entity
+@Table(name = "devices")
 public class Device {
 
     @Id

@@ -8,11 +8,13 @@ import pl.pollodz.problem.model.device.Device;
 import pl.pollodz.problem.model.measurement.additional.Coordinate;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
-@Entity(name = "gps_measurements")
+@Entity
 @EqualsAndHashCode(callSuper = true)
 @Data
+@Table(name = "gps_measurements")
 public class GPSMeasurement extends AbstractMeasurement {
 
     private Coordinate coordinate;

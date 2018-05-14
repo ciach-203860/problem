@@ -8,11 +8,13 @@ import pl.pollodz.problem.model.device.Device;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
-@Entity(name = "lighting_measurements")
+@Entity
 @EqualsAndHashCode(callSuper = true)
 @Data
+@Table(name = "lighting_measurements")
 public class LightingMeasurement extends AbstractMeasurement {
 
     @Column(name = "measurement")
