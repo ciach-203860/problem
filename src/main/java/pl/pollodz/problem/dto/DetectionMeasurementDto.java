@@ -7,8 +7,8 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
-public class DoubleMeasurementDto {
+public class DetectionMeasurementDto {
     private long deviceId;
-    private double measurement;
+    private LocalDateTime measurement;
     private LocalDateTime timestamp;
 }
