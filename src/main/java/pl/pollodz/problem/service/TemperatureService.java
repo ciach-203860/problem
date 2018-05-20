@@ -11,7 +11,7 @@ public interface TemperatureService {
 
     List<TemperatureMeasurement> getAll();
 
-    List<TemperatureMeasurementDto> getTemperatureMeasurementsFromPeriodOfTime(LocalDateTime start, LocalDateTime end, long deviceId);
+    List<TemperatureMeasurementDto> getTemperatureMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId);
 
     void save(TemperatureMeasurement measurement);
 }
