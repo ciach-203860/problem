@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
-public class TemperatureMeasurementDto {
+public class DoubleMeasurementDto {
     long deviceId;
     double measurement;
     LocalDateTime timestamp;
