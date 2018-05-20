@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import pl.pollodz.problem.service.TemperatureService;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @RestController
 @RequestMapping("/api/temperatureMeasurement")
@@ -16,8 +15,8 @@ public class TemperatureController {
 
     @RequestMapping(value = "/{deviceId}",
             method = RequestMethod.POST)
-    public ResponseEntity getMeasurementFromPeriodOfTime(@RequestParam("start") Date start,
-                                         @RequestParam("end") Date end,
+    public ResponseEntity getMeasurementFromPeriodOfTime(@RequestParam("start") LocalDateTime start,
+                                         @RequestParam("end") LocalDateTime end,
                                          @PathVariable("deviceId") Long deviceId){
         return ResponseEntity.ok(service.getTemperatureMeasurementsFromPeriodOfTime(start,end,deviceId));
     }

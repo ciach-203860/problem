@@ -27,9 +27,9 @@ public class DefaultTemperatureService implements TemperatureService {
     }
 
     @Override
-    public List<TemperatureMeasurementDto> getTemperatureMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId) {
+    public List<TemperatureMeasurementDto> getTemperatureMeasurementsFromPeriodOfTime(LocalDateTime start, LocalDateTime end, long deviceId) {
         //TODO: naprawić to zapytanie:
-        List<TemperatureMeasurement> measurements = new ArrayList<>();//temperatureRepository.getTemperatureMeasurementsFromPeriodOfTime(start, end, deviceId);
+        List<TemperatureMeasurement> measurements = temperatureRepository.getTemperatureMeasurementsFromPeriodOfTime(start, end, deviceId);
         return measurements.stream()
                 .map(TemperatureMeasurementConverter::toTemperatureMeasurementDto)
                 .collect(Collectors.toList());
