@@ -45,15 +45,10 @@ public class TestController {
     @Autowired
     private Nameless nameless;
 
-    @Autowired
-    private NamelessRefactored namelessRefactored;
-
     @RequestMapping(value = "collect", method = POST)
     public String collectData(@RequestBody MeasurementsList measurementsList) {
 
         //region test
-
-        namelessRefactored.namelessRefactored();
 
         nameless.nameless(measurementsList);
 
