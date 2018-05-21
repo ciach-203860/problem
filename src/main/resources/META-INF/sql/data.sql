@@ -1,3 +1,5 @@
+INSERT INTO mappers (mapper_id, name) VALUES (1, 'temperature mapper');
+
 INSERT INTO devices (device_id, name, unit, measurement_type, description_key) VALUES (1, 'thermometer 1',   'CELSIUS',     'TEMPERATURE',      'property.temperature.inside');
 INSERT INTO devices (device_id, name, unit, measurement_type, description_key) VALUES (2, 'thermometer 2',   'FAHRENHEIT',  'TEMPERATURE',      'property.temperature.outside');
 INSERT INTO devices (device_id, name, unit, measurement_type, description_key) VALUES (3, 'light sensor 1',  'UNKNOWN',     'LIGHTING',         'property.lighting.inside');
@@ -7,6 +9,9 @@ INSERT INTO devices (device_id, name, unit, measurement_type, description_key) V
 INSERT INTO devices (device_id, name, unit, measurement_type, description_key) VALUES (7, 'gps',             'COORDINATES', 'MOTION_ANALYSIS',  'property.motion.analysis');
 INSERT INTO devices (device_id, name, unit, measurement_type, description_key) VALUES (8, 'distance sensor', 'CENTIMETER',  'DISTANCE',         'property.distance.object.opposite');
 INSERT INTO devices (device_id, name, unit, measurement_type, description_key) VALUES (9, 'magnetometer',    'DEGREE',      'AZIMUTH',          'property.azimuth');
+
+INSERT INTO mappers_devices (mapper_id, device_id) VALUES (1, 1);
+INSERT INTO mappers_devices (mapper_id, device_id) VALUES (1, 2);
 
 INSERT INTO temperature_measurements (measurement_id, device_id, timestamp, measurement)         VALUES (1, 1, '2018-05-07 14:52:30', 21.5);
 

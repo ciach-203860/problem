@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.pollodz.problem.core.Nameless;
+import pl.pollodz.problem.corerefactored.NamelessRefactored;
 import pl.pollodz.problem.model.device.Device;
 import pl.pollodz.problem.model.measurement.*;
 import pl.pollodz.problem.response.MeasurementsList;
@@ -44,10 +45,15 @@ public class TestController {
     @Autowired
     private Nameless nameless;
 
+    @Autowired
+    private NamelessRefactored namelessRefactored;
+
     @RequestMapping(value = "collect", method = POST)
     public String collectData(@RequestBody MeasurementsList measurementsList) {
 
         //region test
+
+        namelessRefactored.namelessRefactored();
 
         nameless.nameless(measurementsList);
 
