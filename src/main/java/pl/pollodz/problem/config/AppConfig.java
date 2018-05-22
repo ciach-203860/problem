@@ -2,9 +2,11 @@ package pl.pollodz.problem.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import pl.pollodz.problem.core.chain.*;
 import pl.pollodz.problem.core.mapper.*;
 import pl.pollodz.problem.core.translator.FahrenheitToCelsiusTemperatureTranslator;
 import pl.pollodz.problem.core.translator.TemperatureTranslator;
+import pl.pollodz.problem.model.device.MeasurementType;
 
 @Configuration
 public class AppConfig {
@@ -27,5 +29,40 @@ public class AppConfig {
     @Bean
     public DateMapper dateMapper() {
         return new DefaultDateMapper();
+    }
+
+    @Bean
+    public TemperatureMapper temperatureMapper() {
+        return new TemperatureMapper(null, MeasurementType.TEMPERATURE);
+    }
+
+    @Bean
+    public AzimuthMapper azimuthMapper() {
+        return new AzimuthMapper(null, MeasurementType.AZIMUTH);
+    }
+
+    @Bean
+    public DistanceMapper distanceMapper() {
+        return new DistanceMapper(null, MeasurementType.DISTANCE);
+    }
+
+    @Bean
+    public HumidityMapper humidityMapper() {
+        return new HumidityMapper(null, MeasurementType.HUMIDITY);
+    }
+
+    @Bean
+    public LightingMapper lightingMapper() {
+        return new LightingMapper(null, MeasurementType.LIGHTING);
+    }
+
+    @Bean
+    public MotionDetectionMapper motionDetectionMapper() {
+        return new MotionDetectionMapper(null, MeasurementType.MOTION_DETECTION);
+    }
+
+    @Bean
+    public MotionAnalysisMapper motionAnalysisMapper() {
+        return new MotionAnalysisMapper(null, MeasurementType.MOTION_ANALYSIS);
     }
 }
