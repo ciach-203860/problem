@@ -1,11 +1,16 @@
 spring:
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
-    properties:
-      javax:
-        persistence:
-          schema-generation:
-            database:
-              action: drop-and-create
-          sql-load-script-source: META-INF/sql/data.sql
+    jpa:
+        database: MYSQL
+        hibernate:
+            ddl-auto: create-drop
+        properties:
+          javax:
+            persistence:
+                  sql-load-script-source: META-INF/sql/data.sql
+
+    datasource:
+        url: jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2239669
+        username: sql2239669
+        password: aC2*wU3!
+        driver-class-name: com.mysql.jdbc.Driver
+
