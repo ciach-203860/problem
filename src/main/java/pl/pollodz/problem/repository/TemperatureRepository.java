@@ -14,4 +14,11 @@ public interface TemperatureRepository extends JpaRepository<TemperatureMeasurem
      List<TemperatureMeasurement> getTemperatureMeasurementsFromPeriodOfTime(@Param("start")LocalDateTime start,
                                                                              @Param("end")LocalDateTime end,
                                                                              @Param("deviceId")Long deviceId);
+
+    @Query("SELECT e FROM TemperatureMeasurement e JOIN fetch e.device d WHERE " +
+            "e.timestamp >= :start AND e.timestamp <= :end")
+    List<TemperatureMeasurement> getTemperatureMeasurementsFromPeriodOfTime(@Param("start")LocalDateTime start,
+                                                                            @Param("end")LocalDateTime end);
+
+    List<TemperatureMeasurement> findByDeviceId(Long deviceId);
 }

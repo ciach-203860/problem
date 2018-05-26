@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.pollodz.problem.dto.DoubleMeasurementDto;
+import pl.pollodz.problem.dto.ExtendedDoubleMeasurement;
 import pl.pollodz.problem.dto.converter.DateConverter;
 import pl.pollodz.problem.dto.converter.TemperatureMeasurementConverter;
 import pl.pollodz.problem.model.measurement.TemperatureMeasurement;
@@ -32,6 +33,36 @@ public class DefaultTemperatureService implements TemperatureService {
                         deviceId);
         return measurements.stream()
                 .map(TemperatureMeasurementConverter::toTemperatureMeasurementDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ExtendedDoubleMeasurement> getExtendedTemperatureMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId) {
+        List<TemperatureMeasurement> measurements;
+        if(start == null || end == null) {
+            measurements = temperatureRepository.findByDeviceId(deviceId);
+        } else {
+            measurements = temperatureRepository
+                    .getTemperatureMeasurementsFromPeriodOfTime(DateConverter.toLocalDataTime(start), DateConverter.toLocalDataTime(end),
+                            deviceId);
+        }
+        return measurements.stream()
+                .map(TemperatureMeasurementConverter::toExtendedDoubleMeasurement)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ExtendedDoubleMeasurement> getExtendedTemperatureMeasurementsFromPeriodOfTime(Date start, Date end) {
+        List<TemperatureMeasurement> measurements;
+        if(start == null || end == null) {
+            measurements = temperatureRepository.findAll();
+        } else {
+            measurements = temperatureRepository
+                    .getTemperatureMeasurementsFromPeriodOfTime(DateConverter.toLocalDataTime(start),
+                            DateConverter.toLocalDataTime(end));
+        }
+        return measurements.stream()
+                .map(TemperatureMeasurementConverter::toExtendedDoubleMeasurement)
                 .collect(Collectors.toList());
     }
 

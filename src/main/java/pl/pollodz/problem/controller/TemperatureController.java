@@ -22,4 +22,20 @@ public class TemperatureController {
                                                          @PathVariable("deviceId") Long deviceId){
         return ResponseEntity.ok(service.getTemperatureMeasurementsFromPeriodOfTime(start,end,deviceId));
     }
+
+    @RequestMapping(value = "/{deviceId}",
+            method = RequestMethod.GET)
+    public ResponseEntity getExtendedMeasurementFromPeriodOfTime( @RequestParam(value = "start", required = false) @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") Date start,
+                                                          @RequestParam(value = "end", required = false) @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") Date end,
+                                                          @PathVariable("deviceId") Long deviceId){
+        return ResponseEntity.ok(service.getExtendedTemperatureMeasurementsFromPeriodOfTime(start,end,deviceId));
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity getExtendedMeasurementFromPeriodOfTime( @RequestParam(value = "start", required = false) @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") Date start,
+                                                                  @RequestParam(value = "end", required = false) @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") Date end)
+                                                                  {
+        return ResponseEntity.ok(service.getExtendedTemperatureMeasurementsFromPeriodOfTime(start,end));
+    }
+
 }

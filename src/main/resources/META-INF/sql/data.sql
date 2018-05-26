@@ -9,6 +9,10 @@ INSERT INTO devices (device_id, name, unit, measurement_type, description_key) V
 INSERT INTO devices (device_id, name, unit, measurement_type, description_key) VALUES (9, 'magnetometer',    'DEGREE',      'AZIMUTH',          'property.azimuth');
 
 INSERT INTO temperature_measurements (measurement_id, device_id, timestamp, measurement)         VALUES (1, 1, '2018-05-07 14:52:30', 21.5);
+INSERT INTO temperature_measurements (measurement_id, device_id, timestamp, measurement)         VALUES (2, 1, '2018-05-07 15:52:30', 24.5);
+INSERT INTO temperature_measurements (measurement_id, device_id, timestamp, measurement)         VALUES (3, 1, '2018-05-07 16:52:30', 20.1);
+INSERT INTO temperature_measurements (measurement_id, device_id, timestamp, measurement)         VALUES (4, 2, '2018-05-07 16:52:30', 20.1);
+
 
 INSERT INTO lighting_measurements    (measurement_id, device_id, timestamp, measurement)         VALUES (1, 3, '2018-05-07 14:55:30', 500);
 
