@@ -14,4 +14,11 @@ public interface DetectionRepository extends JpaRepository<DetectionMeasurement,
     List<DetectionMeasurement> getDetectionMeasurementFromPeriodOfTime(@Param("start")LocalDateTime start,
                                                                        @Param("end")LocalDateTime end,
                                                                        @Param("deviceId")Long deviceId);
+
+    @Query("SELECT e FROM DetectionMeasurement e JOIN fetch e.device d WHERE " +
+            "e.timestamp >= :start AND e.timestamp <= :end")
+    List<DetectionMeasurement> getDetectionMeasurementsFromPeriodOfTime(@Param("start")LocalDateTime start,
+                                                                    @Param("end")LocalDateTime end);
+
+    List<DetectionMeasurement> findByDeviceId(Long deviceId);
 }

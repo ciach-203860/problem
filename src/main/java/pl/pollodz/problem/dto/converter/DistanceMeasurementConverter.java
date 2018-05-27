@@ -19,7 +19,7 @@ public class DistanceMeasurementConverter {
                 .deviceId(t.getDevice().getId())
                 .measurement(t.getMeasurement())
                 .timestamp(t.getTimestamp())
-                .measurementType(MeasurementType.TEMPERATURE.name())
+                .measurementType(t.getDevice().getMeasurementType().name())
                 .unit(t.getDevice().getUnit().name())
                 .build();
     }

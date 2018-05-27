@@ -3,6 +3,7 @@ package pl.pollodz.problem.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.pollodz.problem.dto.ExtendedGPSMeasurement;
 import pl.pollodz.problem.dto.GPSMeasurementDto;
 import pl.pollodz.problem.dto.converter.DateConverter;
 import pl.pollodz.problem.dto.converter.GPSMeasurementConverter;
@@ -32,6 +33,36 @@ public class DefaultGPSService implements GPSService {
                         deviceId);
         return measurements.stream()
                 .map(GPSMeasurementConverter ::toGPSMeasurementDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ExtendedGPSMeasurement> getExtendedMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId) {
+        List<GPSMeasurement> measurements;
+        if(start == null || end == null) {
+            measurements = gpsRepository.findByDeviceId(deviceId);
+        } else {
+            measurements = gpsRepository
+                    .getGPSMeasurementFromPeriodOfTime(DateConverter.toLocalDataTime(start), DateConverter.toLocalDataTime(end),
+                            deviceId);
+        }
+        return measurements.stream()
+                .map(GPSMeasurementConverter::toExtendedGPSMeasurement)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ExtendedGPSMeasurement> getExtendedMeasurementsFromPeriodOfTime(Date start, Date end) {
+        List<GPSMeasurement> measurements;
+        if(start == null || end == null) {
+            measurements = gpsRepository.findAll();
+        } else {
+            measurements = gpsRepository
+                    .getGPSMeasurementsFromPeriodOfTime(DateConverter.toLocalDataTime(start),
+                            DateConverter.toLocalDataTime(end));
+        }
+        return measurements.stream()
+                .map(GPSMeasurementConverter::toExtendedGPSMeasurement)
                 .collect(Collectors.toList());
     }
 
