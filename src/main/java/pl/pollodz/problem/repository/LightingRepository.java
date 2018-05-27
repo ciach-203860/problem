@@ -14,4 +14,11 @@ public interface LightingRepository extends JpaRepository<LightingMeasurement, L
     List<LightingMeasurement> getLightingMeasurementFromPeriodOfTime(@Param("start")LocalDateTime start,
                                                                      @Param("end")LocalDateTime end,
                                                                      @Param("deviceId")Long deviceId);
+
+    @Query("SELECT e FROM LightingMeasurement e JOIN fetch e.device d WHERE " +
+            "e.timestamp >= :start AND e.timestamp <= :end")
+    List<LightingMeasurement> getLightingMeasurementFromPeriodOfTime(@Param("start")LocalDateTime start,
+                                                                     @Param("end")LocalDateTime end);
+
+    List<LightingMeasurement> findByDeviceId(Long deviceId);
 }

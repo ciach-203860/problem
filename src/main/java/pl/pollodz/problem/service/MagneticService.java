@@ -1,6 +1,7 @@
 package pl.pollodz.problem.service;
 
 import pl.pollodz.problem.dto.DoubleMeasurementDto;
+import pl.pollodz.problem.dto.ExtendedDoubleMeasurement;
 import pl.pollodz.problem.model.measurement.MagneticMeasurement;
 
 import java.util.Date;
@@ -10,7 +11,11 @@ public interface MagneticService {
 
     List<MagneticMeasurement> getAll();
 
-    List<DoubleMeasurementDto> getMagneticMeasurementFromPeriodOfTime(Date start, Date end, long deviceId);
+    List<DoubleMeasurementDto> getMeasurementFromPeriodOfTime(Date start, Date end, long deviceId);
+
+    List<ExtendedDoubleMeasurement> getExtendedMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId);
+
+    List<ExtendedDoubleMeasurement> getExtendedMeasurementsFromPeriodOfTime(Date start, Date end);
 
     void save(MagneticMeasurement temp);
 }

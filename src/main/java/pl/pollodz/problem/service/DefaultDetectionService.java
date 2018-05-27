@@ -26,7 +26,7 @@ public class DefaultDetectionService implements DetectionService {
     }
 
     @Override
-    public List<DetectionMeasurementDto> getDetectionMeasurementFromPeriodOfTime(Date start, Date end, long deviceId) {
+    public List<DetectionMeasurementDto> getMeasurementFromPeriodOfTime(Date start, Date end, long deviceId) {
         List<DetectionMeasurement> measurements = detectionRepository
                 .getDetectionMeasurementFromPeriodOfTime(DateConverter.toLocalDataTime(start), DateConverter.toLocalDataTime(end),
                         deviceId);

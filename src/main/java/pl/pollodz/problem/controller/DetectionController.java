@@ -23,6 +23,6 @@ public class DetectionController {
     public ResponseEntity getMeasurementFromPeriodOfTime(@PathVariable("start") @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") Date start,
                                                          @PathVariable("end") @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") Date end,
                                                          @PathVariable("deviceId") Long deviceId){
-        return ResponseEntity.ok(service.getDetectionMeasurementFromPeriodOfTime(start,end,deviceId));
+        return ResponseEntity.ok(service.getMeasurementFromPeriodOfTime(start,end,deviceId));
     }
 }

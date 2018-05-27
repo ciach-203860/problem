@@ -10,7 +10,7 @@ public interface GPSService {
 
     List<GPSMeasurement> getAll();
 
-    List<GPSMeasurementDto> getGPSMeasurementFromPeriodOfTime(Date start, Date end, long deviceId);
+    List<GPSMeasurementDto> getMeasurementFromPeriodOfTime(Date start, Date end, long deviceId);
 
     void save(GPSMeasurement temp);
 }

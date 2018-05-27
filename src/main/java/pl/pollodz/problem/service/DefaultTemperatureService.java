@@ -27,7 +27,7 @@ public class DefaultTemperatureService implements TemperatureService {
     }
 
     @Override
-    public List<DoubleMeasurementDto> getTemperatureMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId) {
+    public List<DoubleMeasurementDto> getMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId) {
         List<TemperatureMeasurement> measurements = temperatureRepository
                 .getTemperatureMeasurementsFromPeriodOfTime(DateConverter.toLocalDataTime(start), DateConverter.toLocalDataTime(end),
                         deviceId);
@@ -37,7 +37,7 @@ public class DefaultTemperatureService implements TemperatureService {
     }
 
     @Override
-    public List<ExtendedDoubleMeasurement> getExtendedTemperatureMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId) {
+    public List<ExtendedDoubleMeasurement> getExtendedMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId) {
         List<TemperatureMeasurement> measurements;
         if(start == null || end == null) {
             measurements = temperatureRepository.findByDeviceId(deviceId);
@@ -52,7 +52,7 @@ public class DefaultTemperatureService implements TemperatureService {
     }
 
     @Override
-    public List<ExtendedDoubleMeasurement> getExtendedTemperatureMeasurementsFromPeriodOfTime(Date start, Date end) {
+    public List<ExtendedDoubleMeasurement> getExtendedMeasurementsFromPeriodOfTime(Date start, Date end) {
         List<TemperatureMeasurement> measurements;
         if(start == null || end == null) {
             measurements = temperatureRepository.findAll();

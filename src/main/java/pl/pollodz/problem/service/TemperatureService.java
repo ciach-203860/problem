@@ -11,11 +11,11 @@ public interface TemperatureService {
 
     List<TemperatureMeasurement> getAll();
 
-    List<DoubleMeasurementDto> getTemperatureMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId);
+    List<DoubleMeasurementDto> getMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId);
 
-    List<ExtendedDoubleMeasurement> getExtendedTemperatureMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId);
+    List<ExtendedDoubleMeasurement> getExtendedMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId);
 
-    List<ExtendedDoubleMeasurement> getExtendedTemperatureMeasurementsFromPeriodOfTime(Date start, Date end);
+    List<ExtendedDoubleMeasurement> getExtendedMeasurementsFromPeriodOfTime(Date start, Date end);
 
     void save(TemperatureMeasurement measurement);
 }

@@ -10,7 +10,7 @@ public interface DetectionService {
 
     List<DetectionMeasurement> getAll();
 
-    public List<DetectionMeasurementDto> getDetectionMeasurementFromPeriodOfTime(Date start, Date end, long deviceId);
+    public List<DetectionMeasurementDto> getMeasurementFromPeriodOfTime(Date start, Date end, long deviceId);
 
     void save(DetectionMeasurement temp);
 }

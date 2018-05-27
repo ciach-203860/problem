@@ -26,7 +26,7 @@ public class DefaultGPSService implements GPSService {
     }
 
     @Override
-    public List<GPSMeasurementDto> getGPSMeasurementFromPeriodOfTime(Date start, Date end, long deviceId) {
+    public List<GPSMeasurementDto> getMeasurementFromPeriodOfTime(Date start, Date end, long deviceId) {
         List<GPSMeasurement> measurements = gpsRepository
                 .getGPSMeasurementFromPeriodOfTime(DateConverter.toLocalDataTime(start), DateConverter.toLocalDataTime(end),
                         deviceId);

@@ -1,6 +1,7 @@
 package pl.pollodz.problem.service;
 
 import pl.pollodz.problem.dto.DoubleMeasurementDto;
+import pl.pollodz.problem.dto.ExtendedDoubleMeasurement;
 import pl.pollodz.problem.model.measurement.LightingMeasurement;
 
 import java.util.Date;
@@ -10,7 +11,11 @@ public interface LightingService {
 
     List<LightingMeasurement> getAll();
 
-    List<DoubleMeasurementDto> getLightingMeasurementFromPeriodOfTime(Date start, Date end, long deviceId);
+    List<DoubleMeasurementDto> getMeasurementFromPeriodOfTime(Date start, Date end, long deviceId);
+
+    List<ExtendedDoubleMeasurement> getExtendedMeasurementsFromPeriodOfTime(Date start, Date end, long deviceId);
+
+    List<ExtendedDoubleMeasurement> getExtendedMeasurementsFromPeriodOfTime(Date start, Date end);
 
     void save(LightingMeasurement temp);
 }
