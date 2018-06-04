@@ -21,4 +21,10 @@ public class Coordinate {
     @Tolerate
     public Coordinate() {
     }
+
+    @Override
+    public String toString() {
+        return  latitude + "," + longitude;
+
+    }
 }

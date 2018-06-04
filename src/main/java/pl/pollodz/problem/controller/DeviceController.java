@@ -61,7 +61,7 @@ public class DeviceController {
             case DISTANCE:
                 return ResponseEntity.ok(distanceService.getExtendedMeasurementFromPeriodOfTime(start,end,deviceId));
             case HUMIDITY:
-                return ResponseEntity.ok(distanceService.getExtendedMeasurementFromPeriodOfTime(start,end,deviceId));
+                return ResponseEntity.ok(humidityService.getExtendedMeasurementsFromPeriodOfTime(start,end,deviceId));
             case LIGHTING:
                 return ResponseEntity.ok(lightingService.getExtendedMeasurementsFromPeriodOfTime(start,end,deviceId));
             case MOTION_ANALYSIS:
@@ -70,6 +70,13 @@ public class DeviceController {
                 return ResponseEntity.ok(detectionService.getExtendedMeasurementsFromPeriodOfTime(start,end,deviceId));
         }
         return ResponseEntity.status(400).build();
+    }
+    @RequestMapping(value = "/{deviceId}/measurements",
+            method = RequestMethod.GET)
+    public ResponseEntity getUniversalMeasurementsFromPeriodOfTime( @RequestParam(value = "start", required = false) @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") Date start,
+                                                                    @RequestParam(value = "end", required = false) @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") Date end,
+                                                                    @PathVariable("deviceId") Long deviceId){
+        return ResponseEntity.ok(service.getMeasuermentsForDevices(start,end,deviceId));
     }
 
 }
