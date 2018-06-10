@@ -11,9 +11,9 @@ import java.time.LocalDateTime;
 public class Measurement {
 
     @JsonProperty(value = "deviceId")
-    private String deviceId;
+    private Long deviceId;
 
-    @JsonProperty(value = "value")
+    @JsonProperty(value = "measurement")
     private String value;
 
 //    @JsonProperty(value = "timestamp")

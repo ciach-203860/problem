@@ -60,7 +60,7 @@ public class Nameless {
 
             try {
 
-                Device device = deviceService.getById(Long.parseLong(measurement.getDeviceId()))
+                Device device = deviceService.getById(measurement.getDeviceId())
                         .orElseThrow(NoDeviceWithGivenIdException::new);
 
                 azimuthMapper.handleMeasurement(measurement, device);

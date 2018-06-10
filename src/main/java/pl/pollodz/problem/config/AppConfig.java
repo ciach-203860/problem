@@ -2,11 +2,14 @@ package pl.pollodz.problem.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.web.client.RestTemplate;
 import pl.pollodz.problem.core.chain.*;
 import pl.pollodz.problem.core.mapper.*;
 import pl.pollodz.problem.core.translator.FahrenheitToCelsiusTemperatureTranslator;
 import pl.pollodz.problem.core.translator.TemperatureTranslator;
 import pl.pollodz.problem.model.device.MeasurementType;
+import pl.pollodz.problem.service.JsonResponse;
 
 @Configuration
 public class AppConfig {
@@ -64,5 +67,15 @@ public class AppConfig {
     @Bean
     public MotionAnalysisMapper motionAnalysisMapper() {
         return new MotionAnalysisMapper(null, MeasurementType.MOTION_ANALYSIS);
+    }
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate(new SimpleClientHttpRequestFactory());
+    }
+
+    @Bean
+    public JsonResponse jsonResponse(){
+        return new JsonResponse();
     }
 }
