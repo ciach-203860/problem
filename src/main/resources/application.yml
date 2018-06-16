@@ -9,8 +9,8 @@ spring:
                   sql-load-script-source: META-INF/sql/data.sql
 
     datasource:
-        url: jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2241781
-        username: sql2241781
-        password: vK5*bP4%
+        url: jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7243207
+        username: sql7243207
+        password: SNaLDCr1BB
         driver-class-name: com.mysql.jdbc.Driver
 
