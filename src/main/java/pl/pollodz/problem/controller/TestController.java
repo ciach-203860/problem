@@ -20,8 +20,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RestController
 public class TestController {
 
-    private static final String MM_1 = "http://michalmalec.synology.me:8765/one?token=67tyghHJG7GJfghm";
-    private static final String MM_2 = "http://michalmalec.synology.me:8765/two?token=67tyghHJG7GJfghm";
+    private static final String MM_1 = "http://michalmalec.synology.me:8888/two?token=67tyghHJG7GJfghm";
+    private static final String MM_2 = "http://michalmalec.synology.me:8888/one?token=67tyghHJG7GJfghm";
 
     @Autowired
     private DeviceService deviceService;
